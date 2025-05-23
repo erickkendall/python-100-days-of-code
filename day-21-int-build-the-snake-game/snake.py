@@ -63,3 +63,10 @@ class Snake:
         """Change the snake's direction to right if not moving left."""
         if self.head.heading() != LEFT:
             self.head.setheading(RIGHT)
+
+    def reset(self):
+        for seg in self.segments:
+            seg.reset()
+        self.segments.clear()
+        self.create_snake()
+        self.head = self.segments[0]
